@@ -1,0 +1,16 @@
+﻿@inject IJSRuntime JS
+@page "/counter"
+
+<h1>Map</h1>
+
+
+<div id="map"></div>
+
+@code {
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+        if (firstRender)
+            await JS.InvokeVoidAsync("displayMapLocationJS");
+    }
+}
